@@ -33,7 +33,14 @@
  *
  */
 function* get99BottlesOfBeer() {
-    throw new Error('Not implemented');
+    let nor1 = (n => n === 1 ? '1 bottle' : n + ' bottles');
+    for (let i = 99; i >= 1; --i) {
+        yield nor1(i) + ' of beer on the wall, ' + nor1(i) + ' of beer.';
+        if (i === 1) yield 'Take one down and pass it around, no more bottles of beer on the wall.';
+        else yield 'Take one down and pass it around, ' + nor1(i-1) + ' of beer on the wall.';
+    }
+    yield 'No more bottles of beer on the wall, no more bottles of beer.';
+    yield 'Go to the store and buy some more, 99 bottles of beer on the wall.'
 }
 
 
